@@ -1,4 +1,5 @@
 // Packages needed for this application
+const { assertNewExpression } = require('@babel/types');
 const fs = require('fs');
 const inquirer = require('inquirer');
 
@@ -53,10 +54,17 @@ function init() {
             {
                 type: 'list',
                 message: "Would you like to add another team member?",
-                choice: ['Engineer', 'Intern', 'No, that is all']
+                name: 'userChoice',
+                choices: ['Engineer', 'Intern', 'No, that is all'],
+                
             },
         ])
-        .then().catch();
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 
 }
 
