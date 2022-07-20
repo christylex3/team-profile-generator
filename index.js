@@ -1,5 +1,4 @@
 // Packages needed for this application
-const { assertNewExpression } = require('@babel/types');
 const fs = require('fs');
 const inquirer = require('inquirer');
 
