@@ -25,3 +25,40 @@ const internQuestions = [
     "What is the intern's email?",
     "What school does the intern attend?"
 ];
+
+// Initializes app
+function init() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: teamManagerQuestions[0],
+                name: 'teamManagerName'
+            },
+            {
+                type: 'input',
+                message: teamManagerQuestions[1],
+                name: 'teamManagerID'
+            },
+            {
+                type: 'input',
+                message: teamManagerQuestions[2],
+                name: 'teamManagerEmail'
+            },
+            {
+                type: 'input',
+                message: teamManagerQuestions[3],
+                name: 'teamManagerOfficeNum'
+            },
+            {
+                type: 'list',
+                message: "Would you like to add another team member?",
+                choice: ['Engineer', 'Intern', 'No, that is all']
+            },
+        ])
+        .then().catch();
+
+}
+
+// Calls init() to initialize app
+init();
