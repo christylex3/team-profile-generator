@@ -34,7 +34,7 @@ function init() {
             {
                 type: 'input',
                 message: teamManagerQuestions[0],
-                name: 'teamManagerName'
+                name: 'teamManagerName',
             },
             {
                 type: 'input',
@@ -56,11 +56,15 @@ function init() {
                 message: "Would you like to add another team member?",
                 name: 'userChoice',
                 choices: ['Engineer', 'Intern', 'No, that is all'],
-                
             },
         ])
         .then((data) => {
             console.log(data);
+            if (data.userChoice == 'No, that is all') {
+                console.log('Team profile has been updated.');
+            } else {
+                // loop inquirer to have engineer or intern questions
+            }
         })
         .catch((error) => {
             console.log(error);
