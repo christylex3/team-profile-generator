@@ -17,3 +17,11 @@ const engineerQuestions = [
     "What is the engineer's email?",
     "What is the engineer's GitHub username?"
 ];
+
+// An array of questions that asks about the intern
+const internQuestions = [
+    "What is the intern's name?",
+    "What is the intern's employee ID?",
+    "What is the intern's email?",
+    "What school does the intern attend?"
+];
