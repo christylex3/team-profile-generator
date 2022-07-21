@@ -74,6 +74,7 @@ const internQuestions = [
     },
 ];
 
+// An array that asks about adding another team member
 const memberQuestion = [
     {
         type: 'list',
@@ -88,7 +89,8 @@ const memberQuestion = [
 function startQuestions() {
     inquirer
         .prompt(teamManagerQuestions)
-        .then((data) => {
+        .then((teamManagerData) => {
+            console.log(teamManagerData);
             recallInquirer();
         });
 }
@@ -98,13 +100,14 @@ function recallInquirer() {
     inquirer
         .prompt(memberQuestion)
         .then((data) => {
-
+    
             // If user chooses 'Engineer', then prompt user with engineerQuestions
             // Calls function again
             if (data.userChoice == "Engineer") {
                 inquirer
                     .prompt(engineerQuestions)
-                    .then((data) => {
+                    .then((engineerData) => {
+                        console.log(engineerData);
                         recallInquirer();
                     });
 
@@ -113,7 +116,8 @@ function recallInquirer() {
             } else if (data.userChoice == "Intern") {
                 inquirer
                     .prompt(internQuestions)
-                    .then((data) => {
+                    .then((internData) => {
+                        console.log(internData);
                         recallInquirer();
                     });
 
@@ -124,5 +128,5 @@ function recallInquirer() {
         })
 }
 
-// Calls init() to initialize app
+// Calls startQuestions()
 startQuestions();
