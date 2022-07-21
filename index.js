@@ -50,25 +50,32 @@ function init() {
                 message: teamManagerQuestions[3],
                 name: 'teamManagerOfficeNum'
             },
+        ])
+        .then(recallInquirer())
+};
+
+function recallInquirer() {
+    inquirer
+        .prompt([
             {
                 type: 'list',
                 message: "Would you like to add another team member?",
                 name: 'userChoice',
                 choices: ['Engineer', 'Intern', 'No, that is all'],
-            },
+            }
         ])
         .then((data) => {
-            console.log(data);
-            if (data.userChoice == 'No, that is all') {
-                console.log('Team profile has been updated.');
+             if (data.userChoice == "Engineer") {
+                // method of inquirer for engineer
+                // then recall this method
+            } else if (data.userChoice == "Intern") {
+                // method of inquirer for intern
+                // then recall this method
             } else {
-                // loop inquirer to have engineer or intern questions
+                console.log(data);
+                console.log("Team Profile has been updated.");
             }
         })
-        .catch((error) => {
-            console.log(error);
-        });
-
 }
 
 // Calls init() to initialize app
