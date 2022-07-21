@@ -85,26 +85,38 @@ const memberQuestion = [
 
 
 // Initializes app
-function init() {
+function startQuestions() {
     inquirer
         .prompt(teamManagerQuestions)
-        .then(recallInquirer())
         .then((data) => {
-            console.log(data);
+            recallInquirer();
         });
-};
+}
 
 // Helper method - lets engineeer and intern questions become recursive
 function recallInquirer() {
     inquirer
         .prompt(memberQuestion)
         .then((data) => {
+
+            // If user chooses 'Engineer', then prompt user with engineerQuestions
+            // Calls function again
             if (data.userChoice == "Engineer") {
-                // method of inquirer for engineer
-                // then recall this method
+                inquirer
+                    .prompt(engineerQuestions)
+                    .then((data) => {
+                        recallInquirer();
+                    });
+
+            // If user chooses 'Engineer', then prompt user with internQuestions
+            // Calls function again
             } else if (data.userChoice == "Intern") {
-                // method of inquirer for intern
-                // then recall this method
+                inquirer
+                    .prompt(internQuestions)
+                    .then((data) => {
+                        recallInquirer();
+                    });
+
             } else {
                 console.log(data);
                 console.log("Team Profile has been updated.");
@@ -113,4 +125,4 @@ function recallInquirer() {
 }
 
 // Calls init() to initialize app
-init();
+startQuestions();
