@@ -20,7 +20,7 @@ describe("Manager", () => {
     });
 
     it("Can get the Manager's role through getRole()", () => {
-        const person = new Manager("Star", 77, "sun@gmail.com", 102);
+        const person = new Manager("Star", 33, "star@gmail.com", 102);
 
         expect(person.getRole() == "Manager").toEqual(true);
     });
