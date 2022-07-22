@@ -13,8 +13,14 @@ describe("Manager", () => {
         expect(person.officeNumber == "102").toEqual(true);
     });
 
+    it("Can get the Manager's office number through getOfficeNumber()", () => {
+        const person = new Manager("Star", 33, "star@gmail.com", 102);
+
+        expect(person.getOfficeNumber() == 102).toEqual(true);
+    });
+
     it("Can get the Manager's role through getRole()", () => {
-        const person = new Manager("Sun", 77, "sun@gmail.com", "thegreatsunGitHub");
+        const person = new Manager("Star", 77, "sun@gmail.com", 102);
 
         expect(person.getRole() == "Manager").toEqual(true);
     });

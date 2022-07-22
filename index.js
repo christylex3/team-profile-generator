@@ -2,6 +2,19 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
+// Importing other files
+const Employee = require("./lib/Employee");
+const Intern = require("./lib/Employee");
+const Engineer = require("./lib/Engineer");
+const Manager = require("./lib/Manager");
+
+// Arrays to hold data for employees
+var employeeArray = [];
+var internArray = [];
+var engineerArray = [];
+var managerArray = [];
+
+
 // An array of questions that asks about the team manager
 const teamManagerQuestions = [
     {
@@ -91,6 +104,7 @@ function startQuestions() {
         .prompt(teamManagerQuestions)
         .then((teamManagerData) => {
             console.log(teamManagerData);
+
             recallInquirer();
         });
 }
@@ -100,7 +114,7 @@ function recallInquirer() {
     inquirer
         .prompt(memberQuestion)
         .then((data) => {
-    
+
             // If user chooses 'Engineer', then prompt user with engineerQuestions
             // Calls function again
             if (data.userChoice == "Engineer") {
@@ -111,8 +125,8 @@ function recallInquirer() {
                         recallInquirer();
                     });
 
-            // If user chooses 'Engineer', then prompt user with internQuestions
-            // Calls function again
+                // If user chooses 'Engineer', then prompt user with internQuestions
+                // Calls function again
             } else if (data.userChoice == "Intern") {
                 inquirer
                     .prompt(internQuestions)
@@ -123,9 +137,26 @@ function recallInquirer() {
 
             } else {
                 console.log(data);
-                console.log("Team Profile has been updated.");
+                console.log("Test, test");
+                // method that writes the HTML file with Bootstrap
+                writeToFile("index.html");
+
             }
         })
+}
+
+function writeToFile(fileName, data) {
+    var fileContents = generateHTMLFile(data);
+
+    fs.writeFile(fileName, fileContents, (err) =>
+        err ? console.error(err) : console.log("The team profile has been updated.")
+    );
+    // may need to send the file into src
+
+}
+
+function generateHTMLFile(data) {
+
 }
 
 // Calls startQuestions()
