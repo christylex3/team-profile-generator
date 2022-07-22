@@ -85,7 +85,7 @@ const memberQuestion = [
 ];
 
 
-// Initializes app
+// Begins prompting the user with questions to build a team profile
 function startQuestions() {
     inquirer
         .prompt(teamManagerQuestions)
