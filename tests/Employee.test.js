@@ -2,13 +2,13 @@ const Employee = require('../lib/Employee');
 
 describe("Employee", () => {
     it("Can make a new instance of Employee", () => {
-        let person = new Employee();
+        const person = new Employee();
 
         expect(person instanceof Employee).toEqual(true);
     });
 
     it("Can set the name of the Employee through constructor", () => {
-        let person = new Employee("Mo", 11, "mo@gmail.com");
+        const person = new Employee("Mo", 11, "mo@gmail.com");
 
         expect(person.name === "Mo").toEqual(true);
     });
