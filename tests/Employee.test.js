@@ -25,5 +25,27 @@ describe("Employee", () => {
         expect(person.email == "mo@gmail.com").toEqual(true);
     });
 
-    
+    it("Can get the name of the Employee through getName()", () => {
+        const person = new Employee("Mo", 11, "mo@gmail.com");
+
+        expect(person.getName() == "Mo").toEqual(true);
+    });
+
+    it("Can get the id of the Employee through getID()", () => {
+        const person = new Employee("Mo", 11, "mo@gmail.com");
+
+        expect(person.getId() == "11").toEqual(true);
+    });
+
+    it("Can get the email of the Employee through getEmail()", () => {
+        const person = new Employee("Mo", 11, "mo@gmail.com");
+
+        expect(person.getEmail() == "mo@gmail.com").toEqual(true);
+    });
+
+    it("Can get the role of the Employee through getRole()", () => {
+        const person = new Employee("Mo", 11, "mo@gmail.com");
+
+        expect(person.getRole() == "Employee").toEqual(true);
+    });
 });
