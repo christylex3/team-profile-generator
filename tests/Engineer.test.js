@@ -7,13 +7,13 @@ describe("Engineer", () => {
         expect(person instanceof Engineer).toEqual(true);
     });
 
-    it("Can set the github username of the Engineer through constructor", () => {
+    it("Can set the Engineer's GitHub username through constructor", () => {
         const person = new Engineer("Sun", 77, "sun@gmail.com", "thegreatsunGitHub");
 
         expect(person.github == "thegreatsunGitHub").toEqual(true);
     });
 
-    it("Can get the role of the Engineer through getRole()", () => {
+    it("Can get the Engineer's role through getRole()", () => {
         const person = new Engineer("Sun", 77, "sun@gmail.com", "thegreatsunGitHub");
 
         expect(person.getRole() == "Engineer").toEqual(true);
