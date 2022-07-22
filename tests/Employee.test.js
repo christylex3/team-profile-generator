@@ -16,7 +16,7 @@ describe("Employee", () => {
     it("Can set the Employee's id through constructor", () => {
         const person = new Employee("Mo", 11, "mo@gmail.com");
 
-        expect(person.id == "11").toEqual(true);
+        expect(person.id == 11).toEqual(true);
     });
 
     it("Can set the Employee's email through constructor", () => {
