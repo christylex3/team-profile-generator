@@ -8,11 +8,15 @@ const Intern = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 
+var managerPerson;
+var engineerPerson;
+var internPerson;
+
 // Arrays to hold data for employees
-var employeeArray = [];
-var internArray = [];
+// var managerArray = [];
 var engineerArray = [];
-var managerArray = [];
+var internArray = [];
+
 
 
 // An array of questions that asks about the team manager
@@ -20,22 +24,22 @@ const teamManagerQuestions = [
     {
         type: 'input',
         message: "What is the team manager's name?",
-        name: 'teamManagerName',
+        name: 'managerName',
     },
     {
         type: 'input',
         message: "What is the team manager's employee ID?",
-        name: 'teamManagerID'
+        name: 'managerId'
     },
     {
         type: 'input',
         message: "What is the team manager's email?",
-        name: 'teamManagerEmail'
+        name: 'managerEmail'
     },
     {
         type: 'input',
         message: "What is the team manager's office number?",
-        name: 'teamManagerOfficeNum'
+        name: 'managerOfficeNum'
     },
 ];
 
@@ -49,7 +53,7 @@ const engineerQuestions = [
     {
         type: 'input',
         message: "What is the engineer's employee ID?",
-        name: 'engineerID'
+        name: 'engineerId'
     },
     {
         type: 'input',
@@ -73,7 +77,7 @@ const internQuestions = [
     {
         type: 'input',
         message: "What is the intern's employee ID?",
-        name: 'internID'
+        name: 'internId'
     },
     {
         type: 'input',
@@ -104,7 +108,15 @@ function startQuestions() {
         .prompt(teamManagerQuestions)
         .then((teamManagerData) => {
             console.log(teamManagerData);
-
+            managerPerson = new Manager(
+                teamManagerData.managerName,
+                teamManagerData.managerId,
+                teamManagerData.managerEmail,
+                teamManagerData.managerOfficeNum
+            );
+            console.log(managerPerson);
+            engineerArray = [];
+            internArray = [];
             recallInquirer();
         });
 }
@@ -122,6 +134,13 @@ function recallInquirer() {
                     .prompt(engineerQuestions)
                     .then((engineerData) => {
                         console.log(engineerData);
+                        engineerPerson = new Engineer(
+                            engineerData.engineerName,
+                            engineerData.engineerId,
+                            engineerData.engineerEmail,
+                            engineerData.engineerGitHub
+                        );
+                        engineerArray.push(engineerPerson);
                         recallInquirer();
                     });
 
@@ -139,7 +158,7 @@ function recallInquirer() {
                 console.log(data);
                 console.log("Test, test");
                 // method that writes the HTML file with Bootstrap
-                writeToFile("index.html");
+                writeToFile("teamProfile.html");
 
             }
         })
