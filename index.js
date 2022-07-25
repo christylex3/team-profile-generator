@@ -151,6 +151,13 @@ function recallInquirer() {
                     .prompt(internQuestions)
                     .then((internData) => {
                         console.log(internData);
+                        internPerson = new Intern(
+                            internData.internName,
+                            internData.internId,
+                            internData.internEmail,
+                            internData.internSchool
+                        );
+                        internArray.push(internPerson);
                         recallInquirer();
                     });
 
@@ -164,19 +171,36 @@ function recallInquirer() {
         })
 }
 
-function writeToFile(fileName, data) {
-    var fileContents = generateHTMLFile(data);
-
+function writeToFile(fileName) {
+    var fileContents = generateHTMLFile();
     fs.writeFile(fileName, fileContents, (err) =>
         err ? console.error(err) : console.log("The team profile has been updated.")
     );
-    // may need to send the file into src
+    // need to send the file into src
 
 }
 
-function generateHTMLFile(data) {
+function generateHTMLFile() {
+    // add in the basics of HTML
+    // use bootstrap to make cards
+    return `${renderHtmlHead}<body>${renderHtmlBody}${renderHtmlCards}</body>\n</html>`;
 
 }
+
+// Helper method - adds the basic set-up of HTML and incorporates Bootstrap
+function renderHtmlHead() {
+    return `<!DOCTYPE html>\n<html lang="en">\n<head>\n\t<meta charset="UTF-8">\n\t<meta name="viewport" content="width=device-width, initial-scale=1.0" />\n\t<meta http-equiv="X-UA-Compatible" content="ie=edge" />\n\t<title>Team Profile</title>\n\t<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">\n</head>\n\n`;
+}
+
+function renderHtmlBody() {
+    return `\n<header class="d-flex justify-content-center bg-dark">\n\t<h1 class="text-white p-5">My Team</h1>\n</header>\n<main>\n\t<section class="d-flex flex-row justify-content-center flex-wrap">\n`;
+}
+
+function renderHtmlCards() {
+    // make a for-loop that goes through the array of intern and engineer
+    return ``;
+}
+
 
 // Calls startQuestions()
 startQuestions();
