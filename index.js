@@ -4,7 +4,7 @@ const inquirer = require('inquirer');
 
 // Importing other files
 const Employee = require("./lib/Employee");
-const Intern = require("./lib/Employee");
+const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 
@@ -173,7 +173,7 @@ function recallInquirer() {
 
 function writeToFile(fileName) {
     var fileContents = generateHTMLFile();
-    fs.writeFile(fileName, fileContents, (err) =>
+    fs.writeFile(`./src/${fileName}`, fileContents, (err) =>
         err ? console.error(err) : console.log("The team profile has been updated.")
     );
     // need to send the file into src
@@ -183,7 +183,7 @@ function writeToFile(fileName) {
 function generateHTMLFile() {
     // add in the basics of HTML
     // use bootstrap to make cards
-    return `${renderHtmlHead}<body>${renderHtmlBody}${renderHtmlCards}</body>\n</html>`;
+    return `${renderHtmlHead()}<body>${renderHtmlBody()}${renderHtmlCards()}</body>\n</html>`;
 
 }
 
@@ -246,7 +246,7 @@ d="m4.4.8-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267
         </section>
         </article>`
     }
-    return ``;
+    return `${managerCard}\n${engineerCard}\n${internCard}`;
 }
 
 
