@@ -108,10 +108,10 @@ function startQuestions() {
         .then((teamManagerData) => {
             managerPerson = new Manager(
                 teamManagerData.managerName,
+                teamManagerData.managerId,
                 teamManagerData.managerEmail,
                 teamManagerData.managerOfficeNum
             );
-            console.log(managerPerson);
             engineerArray = [];
             internArray = [];
             recallInquirer();
