@@ -23,6 +23,11 @@ npm i
 
 Run `node index.js` and answer the questions. Then navigate to the `src` folder and launch the `teamProfile.html`.
 
+## Credits
+* Manager's icon: https://icons.getbootstrap.com/icons/cup-hot-fill/
+* Engineer's icon: https://icons.getbootstrap.com/icons/pc-display-horizontal/
+* Intern's icon: https://icons.getbootstrap.com/icons/lightbulb/
+
 ## Contribution
 
 No contributions needed.
