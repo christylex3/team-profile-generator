@@ -35,7 +35,9 @@ npm test
 ```
 
 ## Visuals
-![]()
+
+Here is how the team profile appears when it is generated:
+![Team Profile Image](./image/team-profile-image.jpg)
 
 ## Questions
 
