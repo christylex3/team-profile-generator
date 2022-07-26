@@ -8,6 +8,7 @@ const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 
+// Variables that represents each individual employee
 var managerPerson;
 var engineerPerson;
 var internPerson;
@@ -15,8 +16,6 @@ var internPerson;
 // Arrays to hold data for employees
 var engineerArray = [];
 var internArray = [];
-
-
 
 // An array of questions that asks about the team manager
 const teamManagerQuestions = [
@@ -103,12 +102,12 @@ const memberQuestion = [
 
 // Begins prompting the user with questions to build a team profile
 function startQuestions() {
+    console.log("\nWelcome to Team Profile Generator!\n");
     inquirer
         .prompt(teamManagerQuestions)
         .then((teamManagerData) => {
             managerPerson = new Manager(
                 teamManagerData.managerName,
-                teamManagerData.managerId,
                 teamManagerData.managerEmail,
                 teamManagerData.managerOfficeNum
             );
